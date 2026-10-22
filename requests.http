@@ -1,0 +1,25 @@
+
+### Commande payée -> 201
+POST http://localhost:3001/orders
+Content-Type: application/json
+
+{
+  "customerId": "C-42",
+  "items": [
+    { "sku": "CLAVIER", "qty": 2 }
+  ]
+}
+
+### Commande refusée (598 €) -> 402
+POST http://localhost:3001/orders
+Content-Type: application/json
+
+{
+  "customerId": "C-42",
+  "items": [
+    { "sku": "ECRAN", "qty": 2 }
+  ]
+}
+
+### Relire la commande refusée -> 200
+GET http://localhost:3001/orders/CMD-0002
